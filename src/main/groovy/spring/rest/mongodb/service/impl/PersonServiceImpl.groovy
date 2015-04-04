@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 import spring.rest.mongodb.domain.Person
+import spring.rest.mongodb.models.rest.RestPerson
 import spring.rest.mongodb.repositories.PersonRepository
 import spring.rest.mongodb.service.PersonService
 
@@ -18,9 +19,20 @@ class PersonServiceImpl implements PersonService {
 
 	@Override
 	public List<Person> findByLastName(String lastName) {
-		log.info("Service is autowired and working")
-//		return personRepository.findByLastName(lastName)
-		return []
+		return personRepository.findByLastName(lastName)
 	}
 
+	@Override
+	String createPerson(RestPerson restPerson) {
+		Person person = new Person(
+				firstName: restPerson.firstName,
+				lastName: restPerson.lastName
+		)
+
+		person = personRepository.save(person)
+
+		return person.id
+
+
+	}
 }

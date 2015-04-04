@@ -3,10 +3,13 @@ package spring.rest.mongodb.controller
 import groovy.util.logging.Slf4j
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-
+import spring.rest.mongodb.domain.Person
+import spring.rest.mongodb.models.rest.RestPerson
 import spring.rest.mongodb.service.PersonService
 
 @RestController
@@ -18,8 +21,12 @@ class PersonController {
 	PersonService personService
 
 	@RequestMapping(method = RequestMethod.GET)
-	String getPersonName() {
-		log.info("Controller is working")
-		personService.findByLastName("hi")	
+	List<Person> getPersonName(@RequestParam(value = "lastName") String lastName) {
+		personService.findByLastName(lastName)
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	String createPerson(@RequestBody RestPerson person){
+		personService.createPerson(person)
 	}
 }

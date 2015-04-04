@@ -9,4 +9,6 @@ import spring.rest.mongodb.domain.Person
 public interface PersonRepository extends MongoRepository<Person, Long> {
 
 	List<Person> findByLastName(String lastName)
+
+	Person save(Person person)
 }

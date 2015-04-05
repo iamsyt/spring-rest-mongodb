@@ -1,4 +1,4 @@
-package spring.rest.mongodb.models.rest
+package spring.rest.mongodb.models.rest.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import groovy.transform.EqualsAndHashCode

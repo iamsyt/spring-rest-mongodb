@@ -9,11 +9,9 @@
 ## Steps to run
 
 1. Using embedded Tomcat
-
-..* Build the war file using this command from the project root `mvn clean package`
-..* Run the war file using this command from the project root `java -jar target/springRestMongo.war`
+    * Build the war file using this command from the project root `mvn clean package`
+    * Run the war file using this command from the project root `java -jar target/springRestMongo.war`
 
 2. Using standalone Tomcat
-
-..* Build the war file using this command from the project root `mvn clean package`
-..* Copy the war file into your tomcats webapps folder and start tomcat.
+    * Build the war file using this command from the project root `mvn clean package`
+    * Copy the war file into your tomcats webapps folder and start tomcat.
